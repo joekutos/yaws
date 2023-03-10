@@ -47,6 +47,7 @@ To build the documentation (optional), you also need to install:
 On Ubuntu/debian this is pretty much equal to:
 
     $> apt-get build-dep yaws
+   
 
 On MacOS and OS X, be sure the necessary Xcode command-line tools and
 development environment are set up correctly by running the following
@@ -70,8 +71,13 @@ Build
 -----
 
 You can build via autotools:
-
-    $> ./configure --prefix=/usr/local
+On Redhat Systems
+    $> yum install -y autoconf libtools automake 
+    $> git clone https://github.com/erlyaws/yaws.git 
+    $> cd yaws ; libtoolize
+    $> automake --add-missing
+    $> autoreconf -i 
+    $> ./configure --prefix=/usr/local/ ;make && make install
 
 or via rebar3 on the `rebar3-support` branch:
 
